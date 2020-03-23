@@ -65,14 +65,8 @@ namespace Tennis
             }
             else
             {
-                for (var i = 1; i < 3; i++)
-                {
-                    if (i == 1) tempScore = _player1Score;
-                    else { score += "-"; tempScore = _player2Score; }
+                score = $"{Points[_player1Score]}-{Points[_player2Score]}";
 
-                    score += Points[tempScore];
-                    
-                }
             }
             return score;
         }
