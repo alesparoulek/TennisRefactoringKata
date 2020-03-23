@@ -25,39 +25,38 @@ namespace Tennis
                 return $"{Points[_player1Score]}-{Points[_player2Score]}";
 
             int difference = Math.Abs(_player1Score - _player2Score);
-            if (difference > 1)
-                return $"Win for {(_player1Score > _player2Score ? _player1Name : _player2Name)}";
-            else
+            if (difference < 2)
                 return $"Advantage {(_player1Score > _player2Score ? _player1Name : _player2Name)}";
 
+            return $"Win for {(_player1Score > _player2Score ? _player1Name : _player2Name)}";
         }
 
-        public void SetP1Score(int number)
+        public void IncrementPlayer1Score(int number)
         {
             _player1Score += number;
         }
 
-        public void SetP2Score(int number)
+        public void IncrementPlayer2Score(int number)
         {
             _player2Score += number;
         }
 
-        private void P1Score()
+        private void IncrementPlayer1Score()
         {
             _player1Score++;
         }
 
-        private void P2Score()
+        private void IncrementPlayer2Score()
         {
             _player2Score++;
         }
 
-        public void WonPoint(string player)
+        public void WonPoint(string playerName)
         {
-            if (player.Equals(_player1Name))
-                P1Score();
+            if (playerName.Equals(_player1Name))
+                IncrementPlayer1Score();
             else
-                P2Score();
+                IncrementPlayer2Score();
         }
 
     }
