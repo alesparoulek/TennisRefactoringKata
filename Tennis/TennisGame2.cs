@@ -4,7 +4,9 @@ namespace Tennis
 {
     public class TennisGame2 : ITennisGame
     {
+        // indexes of this array equal the number of points presented by string values
         private static readonly string[] Points = { "Love", "Fifteen", "Thirty", "Forty" };
+
         private readonly string _player1Name;
         private readonly string _player2Name;
         private int _player1Score = 0;
@@ -31,32 +33,12 @@ namespace Tennis
             return $"Win for {(_player1Score > _player2Score ? _player1Name : _player2Name)}";
         }
 
-        public void IncrementPlayer1Score(int number)
-        {
-            _player1Score += number;
-        }
-
-        public void IncrementPlayer2Score(int number)
-        {
-            _player2Score += number;
-        }
-
-        private void IncrementPlayer1Score()
-        {
-            _player1Score++;
-        }
-
-        private void IncrementPlayer2Score()
-        {
-            _player2Score++;
-        }
-
         public void WonPoint(string playerName)
         {
             if (playerName.Equals(_player1Name))
-                IncrementPlayer1Score();
+                _player1Score++;
             else
-                IncrementPlayer2Score();
+                _player2Score++;
         }
 
     }
