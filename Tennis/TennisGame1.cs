@@ -18,6 +18,10 @@ namespace Tennis
 
         public void WonPoint(string playerName)
         {
+            // not really sure if it should be decided based on the real name or just this function always
+            // expects either "player1" or "player2".
+            // I think the design of this function is already wrong in the interface which means the interface is bad.
+            // However if it's the first case, change _player1Name to "player1" also in the other files
             if (playerName.Equals(_player1Name))
                 _player1Score++;
             else
