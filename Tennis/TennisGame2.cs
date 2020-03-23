@@ -29,7 +29,6 @@ namespace Tennis
                     return "Deuce";
             }
 
-
             if (_player1Score < 4 && _player2Score < 4)
             {
                 p1res = Points[_player1Score];
@@ -39,18 +38,6 @@ namespace Tennis
 
 
 
-            if (_player2Score > _player1Score && _player2Score < 4)
-            {
-                if (_player2Score == 2)
-                    p2res = "Thirty";
-                if (_player2Score == 3)
-                    p2res = "Forty";
-                if (_player1Score == 1)
-                    p1res = "Fifteen";
-                if (_player1Score == 2)
-                    p1res = "Thirty";
-                score = p1res + "-" + p2res;
-            }
 
             if (_player1Score > _player2Score && _player2Score >= 3)
             {
