@@ -15,28 +15,28 @@ namespace Tennis
 
         public string GetScore()
         {
-            string s;
+            string score;
             if ((_player1Score < 4 && _player2Score < 4) && (_player1Score + _player2Score < 6))
             {
-                string[] p = { "Love", "Fifteen", "Thirty", "Forty" };
-                s = p[_player1Score];
-                return (_player1Score == _player2Score) ? s + "-All" : s + "-" + p[_player2Score];
+                string[] points = { "Love", "Fifteen", "Thirty", "Forty" };
+                score = points[_player1Score];
+                return (_player1Score == _player2Score) ? score + "-All" : score + "-" + points[_player2Score];
             }
             else
             {
                 if (_player1Score == _player2Score)
                     return "Deuce";
-                s = _player1Score > _player2Score ? _player1Name : _player2Name;
-                return ((_player1Score - _player2Score) * (_player1Score - _player2Score) == 1) ? "Advantage " + s : "Win for " + s;
+                score = _player1Score > _player2Score ? _player1Name : _player2Name;
+                return ((_player1Score - _player2Score) * (_player1Score - _player2Score) == 1) ? "Advantage " + score : "Win for " + score;
             }
         }
 
         public void WonPoint(string playerName)
         {
-            if (playerName == "player1")
-                this._player1Score += 1;
+            if (playerName.Equals(_player1Name))
+                _player1Score++;
             else
-                this._player2Score += 1;
+                _player2Score++;
         }
 
     }
