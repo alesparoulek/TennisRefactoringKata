@@ -2,10 +2,11 @@ namespace Tennis
 {
     class TennisGame1 : ITennisGame
     {
-        private int _player1Score = 0;
-        private int _player2Score = 0;
+        private static readonly string[] Points = { "Love", "Fifteen", "Thirty", "Forty" };
         private readonly string _player1Name;
         private readonly string _player2Name;
+        private int _player1Score = 0;
+        private int _player2Score = 0;
 
         public TennisGame1(string player1Name, string player2Name)
         {
@@ -15,11 +16,21 @@ namespace Tennis
 
         public void WonPoint(string playerName)
         {
-            if (playerName == "player1")
+            if (playerName == _player1Name)
                 _player1Score += 1;
             else
                 _player2Score += 1;
         }
+
+        /*public void Player1WonPoint()
+        {
+            _player1Score++;
+        }
+
+        public void Player2WonPoint()
+        {
+            _player2Score;
+        }*/
 
         public string GetScore()
         {
@@ -58,21 +69,9 @@ namespace Tennis
                 {
                     if (i == 1) tempScore = _player1Score;
                     else { score += "-"; tempScore = _player2Score; }
-                    switch (tempScore)
-                    {
-                        case 0:
-                            score += "Love";
-                            break;
-                        case 1:
-                            score += "Fifteen";
-                            break;
-                        case 2:
-                            score += "Thirty";
-                            break;
-                        case 3:
-                            score += "Forty";
-                            break;
-                    }
+
+                    score += Points[tempScore];
+                    
                 }
             }
             return score;
