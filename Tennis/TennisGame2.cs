@@ -6,11 +6,7 @@ namespace Tennis
         private readonly string _player1Name;
         private readonly string _player2Name;
         private int _player1Score = 0;
-        private int _player2Score = 0;
-
-        private string p1res = "";
-        private string p2res = "";
-        
+        private int _player2Score = 0;      
 
         public TennisGame2(string player1Name, string player2Name)
         {
@@ -25,11 +21,8 @@ namespace Tennis
 
 
             if (_player1Score < 4 && _player2Score < 4)
-            {
-                p1res = Points[_player1Score];
-                p2res = Points[_player2Score];
-                return p1res + "-" + p2res;
-            }
+                return $"{Points[_player1Score]}-{Points[_player2Score]}";
+
 
             int difference = _player1Score - _player2Score;
             if (difference > 1 || difference < -1)
