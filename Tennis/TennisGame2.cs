@@ -37,30 +37,17 @@ namespace Tennis
             }
 
 
-            if (_player1Score > _player2Score && _player2Score >= 3)
-            {
-                score = "Advantage player1";
-            }
 
-            if (_player2Score > _player1Score && _player1Score >= 3)
+            if (_player1Score >= 4 || _player2Score >= 4)
             {
-                score = "Advantage player2";
+                int difference = _player1Score - _player2Score;
+                if (difference > 1 || difference < -1)
+                    return $"Win for {(_player1Score > _player2Score ? _player1Name : _player2Name)}";
+                else
+                    return $"Advantage {(_player1Score > _player2Score ? _player1Name : _player2Name)}";
             }
-
-            int difference = _player1Score - _player2Score;
-            if (difference > 1 || difference < -1)
-            {
-                return $"Win for {(_player1Score > _player2Score ? _player1Name : _player2Name)}";
-            }
-
-            if (_player1Score >= 4 && _player2Score >= 0 && (_player1Score - _player2Score) >= 2)
-            {
-                score = "Win for player1";
-            }
-            if (_player2Score >= 4 && _player1Score >= 0 && (_player2Score - _player1Score) >= 2)
-            {
-                score = "Win for player2";
-            }
+            
+            
             return score;
         }
 
