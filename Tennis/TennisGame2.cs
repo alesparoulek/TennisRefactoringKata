@@ -20,7 +20,6 @@ namespace Tennis
 
         public string GetScore()
         {
-            string score = "";
             if (_player1Score == _player2Score)
             {
                 if (_player1Score < 3)
@@ -36,19 +35,12 @@ namespace Tennis
                 return p1res + "-" + p2res;
             }
 
+            int difference = _player1Score - _player2Score;
+            if (difference > 1 || difference < -1)
+                return $"Win for {(_player1Score > _player2Score ? _player1Name : _player2Name)}";
+            else
+                return $"Advantage {(_player1Score > _player2Score ? _player1Name : _player2Name)}";
 
-
-            if (_player1Score >= 4 || _player2Score >= 4)
-            {
-                int difference = _player1Score - _player2Score;
-                if (difference > 1 || difference < -1)
-                    return $"Win for {(_player1Score > _player2Score ? _player1Name : _player2Name)}";
-                else
-                    return $"Advantage {(_player1Score > _player2Score ? _player1Name : _player2Name)}";
-            }
-            
-            
-            return score;
         }
 
         public void SetP1Score(int number)
