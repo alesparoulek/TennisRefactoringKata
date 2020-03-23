@@ -17,6 +17,13 @@ namespace Tennis
             _player1Name = player1Name;
             _player2Name = player2Name;
         }
+        public void WonPoint(string playerName)
+        {
+            if (playerName.Equals(_player1Name))
+                _player1Score++;
+            else
+                _player2Score++;
+        }
 
         public string GetScore()
         {
@@ -32,15 +39,6 @@ namespace Tennis
 
             return $"Win for {(_player1Score > _player2Score ? _player1Name : _player2Name)}";
         }
-
-        public void WonPoint(string playerName)
-        {
-            if (playerName.Equals(_player1Name))
-                _player1Score++;
-            else
-                _player2Score++;
-        }
-
     }
 }
 
