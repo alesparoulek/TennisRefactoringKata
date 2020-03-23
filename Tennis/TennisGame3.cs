@@ -24,8 +24,9 @@ namespace Tennis
             if (_player1Score < 4 && _player2Score < 4)
                 return $"{Points[_player1Score]}-{Points[_player2Score]}";
 
+            int difference = Math.Abs(_player1Score - _player2Score);
             string leadingPlayer = _player1Score > _player2Score ? _player1Name : _player2Name;
-            int difference = Math.Abs(_player1Score - _player2Score;
+
             if (difference == 1)
                 return $"Advantage {leadingPlayer}";
             else
