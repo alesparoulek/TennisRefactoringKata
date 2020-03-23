@@ -34,29 +34,24 @@ namespace Tennis
 
         public string GetScore()
         {
-
-            string score = "";
             if (_player1Score == _player2Score)
             {
                 return _player1Score < 3 ? $"{Points[_player1Score]}-All" : "Deuce";
- 
             }
 
-            
-            else if (_player1Score >= 4 || _player2Score >= 4)
+            if (_player1Score >= 4 || _player2Score >= 4)
             {
-                var minusResult = _player1Score - _player2Score;
-                if (minusResult == 1) score = "Advantage player1";
-                else if (minusResult == -1) score = "Advantage player2";
-                else if (minusResult >= 2) score = "Win for player1";
-                else score = "Win for player2";
-            }
-            else
-            {
-                score = $"{Points[_player1Score]}-{Points[_player2Score]}";
+                int difference = _player1Score - _player2Score;
 
+                if (difference == 1)
+                    return $"Advantage {_player1Name}";
+                if (difference == -1)
+                    return $"Advantage {_player2Name}";
+
+                return $"Win for {(difference > 1 ? _player1Name : _player2Name)}";
             }
-            return score;
+
+            return $"{Points[_player1Score]}-{Points[_player2Score]}";
         }
     }
 }
