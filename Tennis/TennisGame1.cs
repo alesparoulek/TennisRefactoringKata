@@ -2,7 +2,9 @@ namespace Tennis
 {
     class TennisGame1 : ITennisGame
     {
+        // indexes of this array equal the number of points presented by string values
         private static readonly string[] Points = { "Love", "Fifteen", "Thirty", "Forty" };
+
         private readonly string _player1Name;
         private readonly string _player2Name;
         private int _player1Score = 0;
@@ -21,16 +23,6 @@ namespace Tennis
             else
                 _player2Score++;
         }
-
-        /*public void Player1WonPoint()
-        {
-            _player1Score++;
-        }
-
-        public void Player2WonPoint()
-        {
-            _player2Score;
-        }*/
 
         public string GetScore()
         {
