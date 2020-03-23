@@ -21,12 +21,8 @@ namespace Tennis
         public string GetScore()
         {
             if (_player1Score == _player2Score)
-            {
-                if (_player1Score < 3)
-                    return $"{Points[_player1Score]}-All";
-                else
-                    return "Deuce";
-            }
+                return _player1Score < 3 ? $"{Points[_player1Score]}-All" : "Deuce";
+
 
             if (_player1Score < 4 && _player2Score < 4)
             {
