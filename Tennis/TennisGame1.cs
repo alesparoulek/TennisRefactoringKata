@@ -34,27 +34,15 @@ namespace Tennis
 
         public string GetScore()
         {
+
             string score = "";
-            var tempScore = 0;
             if (_player1Score == _player2Score)
             {
-                switch (_player1Score)
-                {
-                    case 0:
-                        score = "Love-All";
-                        break;
-                    case 1:
-                        score = "Fifteen-All";
-                        break;
-                    case 2:
-                        score = "Thirty-All";
-                        break;
-                    default:
-                        score = "Deuce";
-                        break;
-
-                }
+                return _player1Score < 3 ? $"{Points[_player1Score]}-All" : "Deuce";
+ 
             }
+
+            
             else if (_player1Score >= 4 || _player2Score >= 4)
             {
                 var minusResult = _player1Score - _player2Score;
