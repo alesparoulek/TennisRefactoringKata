@@ -19,8 +19,10 @@ namespace Tennis
             string score;
             if ((_player1Score < 4 && _player2Score < 4) && (_player1Score + _player2Score < 6))
             {
-                score = Points[_player1Score];
-                return (_player1Score == _player2Score) ? score + "-All" : score + "-" + Points[_player2Score];
+                if (_player1Score == _player2Score)
+                    return $"{_player1Name}-All";
+
+                return $"{Points[_player1Score]}-{Points[_player2Score]}";
             }
 
             if (_player1Score == _player2Score)
