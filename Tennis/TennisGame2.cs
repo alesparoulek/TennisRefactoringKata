@@ -1,3 +1,5 @@
+using System;
+
 namespace Tennis
 {
     public class TennisGame2 : ITennisGame
@@ -19,13 +21,11 @@ namespace Tennis
             if (_player1Score == _player2Score)
                 return _player1Score < 3 ? $"{Points[_player1Score]}-All" : "Deuce";
 
-
             if (_player1Score < 4 && _player2Score < 4)
                 return $"{Points[_player1Score]}-{Points[_player2Score]}";
 
-
-            int difference = _player1Score - _player2Score;
-            if (difference > 1 || difference < -1)
+            int difference = Math.Abs(_player1Score - _player2Score);
+            if (difference > 1)
                 return $"Win for {(_player1Score > _player2Score ? _player1Name : _player2Name)}";
             else
                 return $"Advantage {(_player1Score > _player2Score ? _player1Name : _player2Name)}";
