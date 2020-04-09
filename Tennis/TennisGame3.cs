@@ -7,8 +7,8 @@ namespace Tennis
         // indexes of this array equal the number of points presented by string values
         private static readonly string[] Points = { "Love", "Fifteen", "Thirty", "Forty" };
 
-        private string _player1Name;
-        private string _player2Name;
+        private readonly string _player1Name;
+        private readonly string _player2Name;
         private int _player1Score = 0;
         private int _player2Score = 0;
 
@@ -18,12 +18,14 @@ namespace Tennis
             _player2Name = player2Name;
         }
 
-        public void WonPoint(string playerName)
+        public void Player1WonPoint()
         {
-            if (playerName.Equals(_player1Name))
-                _player1Score++;
-            else
-                _player2Score++;
+            _player1Score++;
+        }
+
+        public void Player2WonPoint()
+        {
+            _player2Score++;
         }
 
         public string GetScore()
