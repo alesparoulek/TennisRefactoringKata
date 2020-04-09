@@ -16,16 +16,14 @@ namespace Tennis
             _player2Name = player2Name;
         }
 
-        public void WonPoint(string playerName)
+        public void Player1WonPoint()
         {
-            // not really sure if it should be decided based on the real name or just this function always
-            // expects either "player1" or "player2".
-            // I think the design of this function is already wrong in the interface which means the interface is bad.
-            // However if it's the first case, change _player1Name to "player1" also in the other files
-            if (playerName.Equals(_player1Name))
-                _player1Score++;
-            else
-                _player2Score++;
+            _player1Score++;
+        }
+
+        public void Player2WonPoint()
+        {
+            _player2Score++;
         }
 
         public string GetScore()
@@ -44,6 +42,7 @@ namespace Tennis
 
             return $"Win for {(difference > 1 ? _player1Name : _player2Name)}";
         }
+
     }
 }
 
