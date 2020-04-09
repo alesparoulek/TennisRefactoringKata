@@ -17,12 +17,15 @@ namespace Tennis
             _player1Name = player1Name;
             _player2Name = player2Name;
         }
-        public void WonPoint(string playerName)
+
+        public void Player1WonPoint()
         {
-            if (playerName.Equals(_player1Name))
-                _player1Score++;
-            else
-                _player2Score++;
+            _player1Score++;
+        }
+
+        public void Player2WonPoint()
+        {
+            _player2Score++;
         }
 
         public string GetScore()
